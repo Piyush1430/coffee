@@ -41,7 +41,7 @@ class CoffeeScreen extends StatelessWidget {
                 final coffeeItems = availableCoffee[index];
                 return CoffeeTile(
                   items: coffeeItems,
-                  subtitle: Text(" Price : ₹${coffeeItems.price}"),
+                  subtitle: Text(" ${coffeeItems.description}"),
                   iconButton: IconButton(
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(

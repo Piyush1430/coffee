@@ -15,6 +15,13 @@ class CartNotifier extends StateNotifier<List<CoffeeModel>> {
   void removeItems(CoffeeModel items) {
     state = state.where((itm) => itm.id != items.id).toList();
   }
+
+  double getTotalPrice() {
+    return state.fold(
+      0,
+      (total, items) => total + double.parse(items.price),
+    );
+  }
 }
 
 final cartProvider = StateNotifierProvider<CartNotifier, List<CoffeeModel>>(

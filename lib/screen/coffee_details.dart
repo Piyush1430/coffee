@@ -254,6 +254,7 @@ class _CoffeeDetailScreenState extends ConsumerState<CoffeeDetailScreen> {
                       onPressed: () {
                         widget.coffeeItems.quantity = _quantity;
                         widget.coffeeItems.size = _coffeeSize;
+                        widget.coffeeItems.price =price.toString();
 
                         setState(() {
                           ref

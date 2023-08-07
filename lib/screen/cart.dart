@@ -18,6 +18,7 @@ class _CartScreenState extends ConsumerState<CartScreen> {
   @override
   Widget build(BuildContext context) {
     final items = ref.watch(cartProvider);
+    final totalPrice = ref.watch(cartProvider.notifier).getTotalPrice();
 
     return SafeArea(
       child: Padding(
@@ -85,6 +86,51 @@ class _CartScreenState extends ConsumerState<CartScreen> {
                     })),
             const SizedBox(
               height: 5,
+            ),
+            Container(
+              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+              decoration: BoxDecoration(
+                  border: Border.all(color: Colors.blueGrey),
+                  borderRadius: BorderRadius.circular(18)),
+              child: Row(
+                children: [
+                  Expanded(
+                    child: Column(
+                      children: [
+                        Text(
+                          "Total Price ",
+                          style: Theme.of(context)
+                              .textTheme
+                              .bodyLarge!
+                              .copyWith(fontWeight: FontWeight.w500),
+                        ),
+                        Text("₹ $totalPrice",
+                            style: Theme.of(context)
+                                .textTheme
+                                .bodyLarge!
+                                .copyWith(fontWeight: FontWeight.w900)),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(
+                    width: 10,
+                  ),
+                  ElevatedButton.icon(
+                      onPressed: () {},
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: Colors.green,
+                        
+                      ),
+                      icon: const Icon(
+                        Icons.arrow_forward_sharp,
+                        color: Colors.black,
+                      ),
+                      label: Text(
+                        "PAY NOW",
+                        style: Theme.of(context).textTheme.titleMedium,
+                      ))
+                ],
+              ),
             ),
           ],
         ),
