@@ -26,12 +26,15 @@ class _CoffeeDetailScreenState extends ConsumerState<CoffeeDetailScreen> {
 
   @override
   Widget build(BuildContext context) {
+  
+
     double price = double.parse(widget.coffeeItems.price) * _quantity;
     if (selectedIndex == 1) {
       price = (double.parse(widget.coffeeItems.price) * _quantity) * 1.4;
     } else if (selectedIndex == 2) {
       price = (double.parse(widget.coffeeItems.price) * _quantity) * 2;
     }
+
 
     return Scaffold(
       body: SafeArea(
@@ -249,10 +252,10 @@ class _CoffeeDetailScreenState extends ConsumerState<CoffeeDetailScreen> {
                   ),
                   ElevatedButton(
                       onPressed: () {
-                        setState(() {
-                          widget.coffeeItems.quantity = _quantity;
-                          widget.coffeeItems.size = _coffeeSize;
+                        widget.coffeeItems.quantity = _quantity;
+                        widget.coffeeItems.size = _coffeeSize;
 
+                        setState(() {
                           ref
                               .read(cartProvider.notifier)
                               .addItems(widget.coffeeItems);
