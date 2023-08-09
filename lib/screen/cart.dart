@@ -22,7 +22,7 @@ class _CartScreenState extends ConsumerState<CartScreen> {
 
     return SafeArea(
       child: Padding(
-        padding: const EdgeInsets.all(25),
+        padding: const EdgeInsets.only(left: 10,right: 10, bottom: 10),
         child: Column(
           children: [
             Text(
@@ -88,10 +88,11 @@ class _CartScreenState extends ConsumerState<CartScreen> {
               height: 5,
             ),
             Container(
-              padding: EdgeInsets.symmetric(vertical: 10, horizontal: 5),
+              padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 5),
               decoration: BoxDecoration(
                   border: Border.all(color: Colors.blueGrey),
-                  borderRadius: BorderRadius.circular(18)),
+                  borderRadius: BorderRadius.circular(18),
+                color:  Colors.white),
               child: Row(
                 children: [
                   Expanded(
@@ -119,7 +120,6 @@ class _CartScreenState extends ConsumerState<CartScreen> {
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.green,
-                        
                       ),
                       icon: const Icon(
                         Icons.arrow_forward_sharp,
