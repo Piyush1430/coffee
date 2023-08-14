@@ -22,7 +22,7 @@ class _CartScreenState extends ConsumerState<CartScreen> {
 
     return SafeArea(
       child: Padding(
-        padding: const EdgeInsets.only(left: 10,right: 10, bottom: 10),
+        padding: const EdgeInsets.only(left: 10, right: 10, bottom: 10),
         child: Column(
           children: [
             Text(
@@ -92,43 +92,62 @@ class _CartScreenState extends ConsumerState<CartScreen> {
               decoration: BoxDecoration(
                   border: Border.all(color: Colors.blueGrey),
                   borderRadius: BorderRadius.circular(18),
-                color:  Colors.white),
+                  color: Colors.white),
               child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: [
                   Expanded(
-                    child: Column(
-                      children: [
-                        Text(
-                          "Total Price ",
-                          style: Theme.of(context)
-                              .textTheme
-                              .bodyLarge!
-                              .copyWith(fontWeight: FontWeight.w500),
-                        ),
-                        Text("₹ $totalPrice",
+                    child: Padding(
+                      padding: const EdgeInsets.only(
+                        left: 10,
+                        right: 10,
+                      ),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            "Total Price ",
                             style: Theme.of(context)
                                 .textTheme
                                 .bodyLarge!
-                                .copyWith(fontWeight: FontWeight.w900)),
-                      ],
+                                .copyWith(
+                                    fontWeight: FontWeight.w500, fontSize: 18),
+                          ),
+                          Text("₹ $totalPrice",
+                              style: Theme.of(context)
+                                  .textTheme
+                                  .bodyLarge!
+                                  .copyWith(
+                                      fontWeight: FontWeight.w900,
+                                      fontSize: 16)),
+                        ],
+                      ),
                     ),
                   ),
                   const SizedBox(
                     width: 10,
                   ),
-                  ElevatedButton.icon(
+                  ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
                         backgroundColor: Colors.green,
                       ),
-                      icon: const Icon(
-                        Icons.arrow_forward_sharp,
-                        color: Colors.black,
-                      ),
-                      label: Text(
-                        "PAY NOW",
-                        style: Theme.of(context).textTheme.titleMedium,
-                      ))
+                      child: Text.rich(
+                        TextSpan(children: [
+                          TextSpan(
+                            text: "PAY NOW  ",
+                            style: Theme.of(context)
+                                .textTheme
+                                .titleMedium!
+                                .copyWith(fontSize: 18),
+                          ),
+                          WidgetSpan(
+                              child: Icon(
+                            Icons.arrow_forward_ios,
+                            color: Colors.black,
+                          ))
+                        ]),
+                      )),
                 ],
               ),
             ),
