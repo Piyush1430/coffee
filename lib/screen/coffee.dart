@@ -41,16 +41,7 @@ class CoffeeScreen extends StatelessWidget {
                 final coffeeItems = availableCoffee[index];
                 return CoffeeTile(
                   items: coffeeItems,
-                  subtitle: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(" ${coffeeItems.subtitle}"),
-                      const SizedBox(
-                        height: 10,
-                      ),
-                      Text("Price : ₹ ${coffeeItems.displayPrice}")
-                    ],
-                  ),
+                  subtitle: Text("Price : ₹${coffeeItems.displayPrice}"),
                   iconButton: IconButton(
                       onPressed: () {
                         Navigator.of(context).push(MaterialPageRoute(

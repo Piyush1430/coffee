@@ -6,8 +6,7 @@ class CoffeeModel {
   final String id;
   final String name;
   final String imagePath;
-  final String subtitle;
-  final String  displayPrice;
+  final String displayPrice;
   String price;
   int quantity;
   String size;
@@ -15,7 +14,6 @@ class CoffeeModel {
   CoffeeModel({
     required this.name,
     required this.imagePath,
-    required this.subtitle,
     required this.displayPrice,
     required this.price,
     this.quantity = 1,
